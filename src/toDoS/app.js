@@ -2,7 +2,7 @@ import todoStore from "../store/todo.store";
 import html from "./app.html?raw";
 import { renderToDos } from "./use-cases";
 
-const ElementIDs = {
+const ElementHTMLIDs = {
     TodoList : '.todo-list',
 }
 
@@ -10,16 +10,19 @@ const ElementIDs = {
  *
  * @param {String} elementId
  */
-export const App = (elementId) => {
+export const App = (elementIdRenderizaFuncionApp) => {
     const displayTodo = () => {
         const toDos = todoStore.getToDos(todoStore.getCurrentFilter());
-        renderToDos( ElementIDs.TodoList, toDos );
+        console.log(toDos)
+
+        
+        renderToDos( ElementHTMLIDs.TodoList, toDos );
     };
 
     (() => {
         const divApp = document.createElement("div");
         divApp.innerHTML = html;
-        document.querySelector(elementId).append(divApp);
+        document.querySelector(elementIdRenderizaFuncionApp).append(divApp);
         displayTodo();
     })();
 };

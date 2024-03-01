@@ -7,15 +7,11 @@ import { Todo } from "../models/todo.model"
  * @param {String} elementId etiqueta donde renderizar los todos 
  * @param {Todo} toDos  
  */
-export const renderToDos  = ( elementId, toDos = [ ] )=> {
-
+export const renderToDos = (ElementHTMLIDs, toDos = []) => {
     //TODO referencia
-    const element = document.querySelector( elementId )
+    const element = document.querySelector(ElementHTMLIDs);
 
-
-    toDos.forEach( toDo => {
-
-        element.append( createToDoHTML(toDo))
-        
+    toDos.forEach((toDo) => {
+        element.append(createToDoHTML(toDo));
     });
-}
+};

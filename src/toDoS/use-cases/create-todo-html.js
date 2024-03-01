@@ -6,7 +6,7 @@ export const createToDoHTML = ( toDo )=> {
 
     if ( !Todo ) throw new Error(' A TODO object is required')
 
-    const html = `<h2> ${Todo.description} </h2>} `
+    const html = `<h3> ${toDo.description} </h3> `
 
     const  liElement = document.createElement('li');
 

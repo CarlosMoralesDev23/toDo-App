@@ -2,7 +2,6 @@
 import { Todo } from "../toDoS/models/todo.model"
 
 const Filters = {
-
     All : 'all',
     Completed : 'Completed',
     Pending : 'Pending'
@@ -77,10 +76,7 @@ const toggleTodo = ( todoId ) => {
         }
 
         return todo;
-
     })
-
-
 }
 
 
