@@ -8,22 +8,22 @@ import { Todo } from "../models/todo.model";
  */
 export const createToDoHTML = ( toDo )=> {
 
+    const { done, description, id } = toDo; 
+
     if ( !toDo ) throw new Error(' A TODO object is required')
 
     const html = `
-        <li class="completed" data-id="abc">
             <div class="view">
-                <input class="toggle" type="checkbox" ${ toDo.done ? 'checked': ''} >
-                <label> ${ toDo.description } </label>
+                <input class="toggle" type="checkbox" ${ done ? 'checked': ''} >
+                <label> ${ description } </label>
                 <button class="destroy"></button>
             </div>
-            <input class="edit" value="Create a TodoMVC template">
-        </li>`;
+            <input class="edit" value="Create a TodoMVC template">`;
 
     const  liElement = document.createElement('li');
     liElement.innerHTML = html
-    liElement.setAttribute('data-id', toDo.id)
-    if( Todo.done )
+    liElement.setAttribute('data-id', id)
+    if( done )
     liElement.classList( 'completed ')
 
     return liElement
