@@ -14,7 +14,7 @@ const ElementHTMLIDs = {
 export const App = (elementIdRenderizaFuncionApp) => {
     const displayTodo = () => {
         const toDos = todoStore.getToDos(todoStore.getCurrentFilter());
-        console.log(toDos)
+        // console.log(toDos)
 
         
         renderToDos( ElementHTMLIDs.TodoList, toDos );
@@ -30,6 +30,7 @@ export const App = (elementIdRenderizaFuncionApp) => {
 
     // Referencias HTML
     const newDescriptionInput = document.querySelector( ElementHTMLIDs.NewToDoInput )
+    const todoListUL = document.querySelector( ElementHTMLIDs.TodoList )
 
     // Listeners
     newDescriptionInput.addEventListener('keyup', ( event ) => {
@@ -45,6 +46,24 @@ export const App = (elementIdRenderizaFuncionApp) => {
     })
 
 
+    todoListUL.addEventListener('click', (event)=>{
+        // console.log(event.target)
+        const element = event.target.closest( '[data-id]')
+        // console.log(element)
+        // console.log(element.getAttribute('data-id'))
+        todoStore.toggleTodo( element.getAttribute('data-id') )
+        displayTodo()
+    })
+
+    todoListUL.addEventListener("click", (event) => {
+
+        const isDestroyElement = event.target.className === 'destroy';
+        const element = event.target.closest("[data-id]");
+        if ( !element || !isDestroyElement ) return
+
+        todoStore.deleteTodo(element.getAttribute("data-id"));
+        displayTodo();
+    });
 
 
     
