@@ -34,8 +34,8 @@ export const App = (elementIdRenderizaFuncionApp) => {
 
     // Listeners
     newDescriptionInput.addEventListener('keyup', ( event ) => {
-        console.log(event)
-        console.log(event.target.value)
+        // console.log(event)
+        // console.log(event.target.value)
 
         if ( event.keyCode !== 13 ) return;
         if ( event.target.value.trim().length === 0 ) return; 

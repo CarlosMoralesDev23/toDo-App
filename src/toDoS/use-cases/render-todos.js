@@ -1,9 +1,7 @@
 import { createToDoHTML } from "./create-todo-html";
 import { Todo } from "../models/todo.model"
 
-
 let element; 
-
 
 /**
  * 

@@ -24,7 +24,7 @@ export const createToDoHTML = ( toDo )=> {
     liElement.innerHTML = html
     liElement.setAttribute('data-id', id)
     if( done )
-    liElement.classList( 'completed ')
+    liElement.classList.add('completed')
 
     return liElement
 

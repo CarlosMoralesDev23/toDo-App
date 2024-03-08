@@ -21,16 +21,14 @@ const state = {
 }
 
 
-
 const initStore = ()=> {
     loadStore()
     console.log( 'InitStore 🍉' )
 }
 
 
-
 const loadStore = () => {
-    if( localStorage.getItem('state')) return
+    if( !localStorage.getItem('state')) return
 
     const { todos = [] , filter = Filters.All } = JSON.parse( localStorage.getItem('state'))
     state.todos = todos;
@@ -40,7 +38,6 @@ const loadStore = () => {
 const saveStateToLocalStorage = ()=>{
     localStorage.setItem('state', JSON.stringify(state))
 }
-
 
 
 const getToDos = ( Filter = Filters.All ) => {
